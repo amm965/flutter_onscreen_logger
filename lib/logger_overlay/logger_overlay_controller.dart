@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 import '../data/log_item_model.dart';
 
-class LogOverlayController extends GetxController {
+class LoggerOverlayController extends GetxController {
   final RxBool isExpanded = false.obs;
   final RxList<LogItem> debugItems = <LogItem>[].obs;
   final RxList<bool> debugItemsExpansionState = <bool>[].obs;

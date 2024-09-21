@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_onscreen_logger/logger_overlay/logger_icon.dart';
 import 'package:get/get.dart';
-import 'package:lexzur_ui_library/custom_widgets/app4legal_icon.dart';
-import 'package:onscreen_logger/logger_overlay/logger_icon.dart';
 
-import 'log_list_item.dart';
-import 'log_overlay_controller.dart';
+import 'logger_list_item.dart';
+import 'logger_overlay_controller.dart';
 
-class LogOverlayWidget extends StatelessWidget {
-  final LogOverlayController controller = Get.find();
+class LoggerOverlayWidget extends StatelessWidget {
+  final LoggerOverlayController controller = Get.find();
 
-  LogOverlayWidget({super.key});
+  LoggerOverlayWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,7 @@ class LogOverlayWidget extends StatelessWidget {
                     controller: controller.listViewScrollController,
                     itemCount: controller.debugItems.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return LogListItem(
+                      return LoggerListItem(
                         index: index,
                       );
                     }),
@@ -86,7 +85,8 @@ class LogOverlayWidget extends StatelessWidget {
             width: 40,
             color: Get.theme.primaryColor,
             child: const LoggerIcon(
-              assetPath: 'log.svg',
+              assetPath:
+                  'packages/flutter_onscreen_logger/lib/assets/ic_logs.svg',
               color: Colors.white,
             ),
           ),

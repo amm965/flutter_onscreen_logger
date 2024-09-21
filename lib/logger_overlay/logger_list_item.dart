@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_onscreen_logger/extensions/date_extension.dart';
+import 'package:flutter_onscreen_logger/extensions/log_item_type_extension.dart';
+import 'package:flutter_onscreen_logger/logger_overlay/logger_icon.dart';
 import 'package:get/get.dart';
-import 'package:onscreen_logger/extensions/date_extension.dart';
-import 'package:onscreen_logger/extensions/log_item_type_extension.dart';
-import 'package:onscreen_logger/logger_overlay/logger_icon.dart';
 
 import '../data/log_item_model.dart';
-import 'log_overlay_controller.dart';
+import 'logger_overlay_controller.dart';
 
-class LogListItem extends StatelessWidget {
-  final LogOverlayController controller = Get.find();
+class LoggerListItem extends StatelessWidget {
+  final LoggerOverlayController controller = Get.find();
   final int index;
 
-  LogListItem({
+  LoggerListItem({
     super.key,
     required this.index,
   });
@@ -147,7 +147,7 @@ class LogListItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => controller.copyErrorInfo(currentItem),
       child: LoggerIcon(
-        assetPath: 'assets/ic_copy.svg',
+        assetPath: 'packages/flutter_onscreen_logger/lib/assets/ic_copy.svg',
         height: 20,
         width: 20,
         color: currentItem.type.itemColorByType,
