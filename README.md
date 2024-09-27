@@ -1,4 +1,4 @@
-# Lexzur On-Screen Logger
+# Flutter On-Screen Logger
 
 A Flutter package that allows you to display logs on the screen of your app for easier debugging.
 
@@ -16,7 +16,7 @@ A Flutter package that allows you to display logs on the screen of your app for 
     ```yaml
     dependencies:
       lexzur_onscreen_logger:
-        path: ../lexzur_onscreen_logger
+        path: ../flutter_onscreen_logger
     ```
    
 2. Configure your `main.dart` to integrate the library:
