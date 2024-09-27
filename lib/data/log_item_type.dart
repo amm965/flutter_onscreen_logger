@@ -4,4 +4,3 @@ enum LogItemType {
   warning,
   error,
 }
-
