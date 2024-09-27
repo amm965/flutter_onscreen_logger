@@ -22,11 +22,11 @@ class LoggerIcon extends StatelessWidget {
       assetPath,
       height: height,
       width: width,
+      fit: BoxFit.scaleDown,
       colorFilter: ColorFilter.mode(
         color ?? Get.theme.iconTheme.color!,
-        BlendMode.color,
+        BlendMode.srcIn,
       ),
-      fit: BoxFit.scaleDown,
     );
   }
 }

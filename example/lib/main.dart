@@ -24,18 +24,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Stack(
+        children: [
+          MaterialApp(
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            home: const MyHomePage(title: 'Flutter Demo Home Page'),
           ),
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        ),
-        LoggerOverlayWidget(),
-      ],
+          LoggerOverlayWidget(),
+        ],
+      ),
     );
   }
 }
@@ -50,29 +53,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      OnscreenLogger.log(
-        LogItem(
-            type: LogItemType.info, title: 'Info Log Message', description: '''
-Lorem ipsum dolor sit amet.
-Non aspernatur dolores et omnis enim aut ipsam minima eum aperiam magnam est recusandae assumenda.
-In laboriosam impedit ut mollitia earum in commodi odit eum consequatur aspernatur ut repellat voluptatem.
-'''),
-      );
-    });
-  }
-
-  void _generateRandomLogItems({int numberOfItems = 20}) {
+  Future<void> _generateRandomLogItems({int numberOfItems = 20}) async {
     for (int i = 0; i < numberOfItems; i++) {
-      Timer(
-          const Duration(
-            microseconds: 200,
-          ), () {
-        _getRandomItem();
-      });
+      await Future.delayed(
+        const Duration(
+          milliseconds: 800,
+        ),
+      );
+      OnscreenLogger.log(_getRandomItem());
     }
   }
 
@@ -96,7 +85,9 @@ In laboriosam impedit ut mollitia earum in commodi odit eum consequatur aspernat
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: _generateRandomLogItems,
+          onPressed: () {
+            _generateRandomLogItems(numberOfItems: 10);
+          },
           child: const Text('Generate Example Log Messages'),
         ),
       ),

@@ -45,20 +45,23 @@ A Flutter package that allows you to display logs on the screen of your app for 
     }
     ```
 
-   - wrap your `MaterialApp()` widget with a `Stack()`
+   - wrap your `MaterialApp()` widget with a `Stack()` and 
    - add `LogOverlayWidget()` widget below it
    - Note: you can add a condition here to show/hide the on-screen logger based on your use cases
 
    ```dart
-   Stack(
-      children: [
-        MaterialApp(
-          //...other material app properties...
-          home: MyHomePage(title: 'MyApp'),
+   Directionality(
+      textDirection: TextDirection.ltr, 
+      child: Stack(
+          children: [
+            MaterialApp(
+              //...other material app properties...
+              home: MyHomePage(title: 'MyApp'),
+            ),
+            if (BuildConfig.showOnScreenLogger) LoggerOverlayWidget(),
+          ],
         ),
-        if (BuildConfig.showOnScreenLogger) LoggerOverlayWidget(),
-      ],
-    ),
+    );
    ```
 
 ## Usage

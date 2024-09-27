@@ -84,10 +84,14 @@ class LoggerOverlayWidget extends StatelessWidget {
             height: 40,
             width: 40,
             color: Get.theme.primaryColor,
-            child: const LoggerIcon(
-              assetPath:
-                  'packages/flutter_onscreen_logger/lib/assets/ic_logs.svg',
-              color: Colors.white,
+            child: const Center(
+              child: LoggerIcon(
+                assetPath:
+                    'packages/flutter_onscreen_logger/lib/assets/ic_logs.svg',
+                color: Colors.white,
+                height: 16,
+                width: 16,
+              ),
             ),
           ),
         ),
