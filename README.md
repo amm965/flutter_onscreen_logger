@@ -7,6 +7,8 @@
 
 A Flutter package that allows you to display logs on the screen of your app for easier debugging.
 
+![flutteer onscreen logger](https://github.com/user-attachments/assets/c6cb07fa-313f-4a73-bd71-3837fb201f85)
+
 ## Features
 
 - Log exceptions and errors in a user-friendly way.
