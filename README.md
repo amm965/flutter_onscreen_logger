@@ -1,4 +1,9 @@
-# Lexzur On-Screen Logger
+# Flutter On-Screen Logger
+
+[![Pub Package](https://img.shields.io/badge/pub-v1.1.7-blue)](https://pub.dev/packages/flutter_onscreen_logger)
+[![Pub Package](https://img.shields.io/badge/flutter-%3E%3D1.17.0-green)](https://flutter.dev/)
+[![GitHub Repo stars](https://img.shields.io/github/stars/amm965/flutter_onscreen_logger?style=social)](https://github.com/amm965/flutter_onscreen_logger)
+
 
 A Flutter package that allows you to display logs on the screen of your app for easier debugging.
 
@@ -15,8 +20,7 @@ A Flutter package that allows you to display logs on the screen of your app for 
 
     ```yaml
     dependencies:
-      lexzur_onscreen_logger:
-        path: ../onscreen_logger
+      flutter_onscreen_logger: ^1.0.0
     ```
 
 2. Configure your `main.dart` to integrate the library:
@@ -52,7 +56,7 @@ A Flutter package that allows you to display logs on the screen of your app for 
           //...other material app properties...
           home: MyHomePage(title: 'MyApp'),
         ),
-        if (BuildConfig.showOnScreenLogger) LogOverlayWidget(),
+        if (BuildConfig.showOnScreenLogger) LoggerOverlayWidget(),
       ],
     ),
    ```
@@ -64,7 +68,7 @@ You can use the on-screen logger to log your own custom message through out your
    ```dart
    OnscreenLogger.log(
          LogItem(
-           type: logItemType,
+           type: LogItemType.info,
            title: 'API Response Received',
            description: '''* API Response:\n$data'''),
        );
