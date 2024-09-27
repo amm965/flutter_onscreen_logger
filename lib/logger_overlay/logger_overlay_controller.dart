@@ -26,14 +26,6 @@ class LoggerOverlayController extends GetxController {
     debugItemsExpansionState.insert(index, !originalValue);
   }
 
-  void generateRandomDebugItems({int numberOfItems = 20}) {
-    debugItems.clear();
-    for (int i = 0; i < numberOfItems; i++) {
-      debugItems.add(LogItem.getRandom());
-      debugItemsExpansionState.add(false);
-    }
-  }
-
   void copyErrorInfo(LogItem item) {
     Clipboard.setData(
       ClipboardData(

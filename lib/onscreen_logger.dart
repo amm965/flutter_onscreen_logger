@@ -1,11 +1,8 @@
 import 'dart:async';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_onscreen_logger/extensions/dio_exception_logger_extension.dart';
 
-import 'data/api_request_logger_model.dart';
 import 'data/log_item_model.dart';
 import 'data/log_item_type.dart';
 import 'logger_overlay/logger_overlay_controller.dart';
@@ -43,17 +40,6 @@ class OnscreenLogger {
     } catch (e) {
       debugPrint('cant log error into lexzur debugger: $e');
     }
-  }
-
-  static void logDioException(DioException dioException) {
-    final LoggerOverlayController debugController = Get.find();
-    debugController.log(dioException.getDebugItem());
-  }
-
-  static void logPreHttpRequestInfo(
-      APIRequestLoggerModel apiRequestLoggerModel) {
-    final LoggerOverlayController debugController = Get.find();
-    debugController.log(apiRequestLoggerModel.debugItem);
   }
 
   static void log(LogItem debugItem) {

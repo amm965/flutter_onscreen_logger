@@ -72,29 +72,28 @@ class LoggerListItem extends StatelessWidget {
             ),
           ),
         ),
-        Column(
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(7),
-                bottomLeft: Radius.circular(7),
-              ),
-              child: Container(
-                color: itemColor,
-                height: 20,
-                width: 20,
-                child: Center(
-                  child: Text(
-                    (index + 1).toString(),
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+        ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(7),
+            bottomLeft: Radius.circular(7),
+          ),
+          child: Container(
+            color: itemColor,
+            height: 20,
+            width: 20,
+            child: Center(
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  (index + 1).toString(),
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-          ],
+          ),
         )
       ],
     );
