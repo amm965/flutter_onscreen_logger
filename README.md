@@ -7,7 +7,7 @@
 
 A Flutter package that allows you to display logs on the screen of your app for easier debugging.
 
-![flutteer onscreen logger]([https://github.com/user-attachments/assets/c6cb07fa-313f-4a73-bd71-3837fb201f85](https://giphy.com/gifs/library-flutter-flutteronscreenlogger-ruFu6zy6PHCyPtp3Cp))
+![flutteer onscreen logger](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG5xY2ZmM3dyZzQ4Y2V2ajBjY3RuMnJrOWE5NnRybjIzZG5yMXM0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ruFu6zy6PHCyPtp3Cp/giphy.webp)
 
 ## Features
 
