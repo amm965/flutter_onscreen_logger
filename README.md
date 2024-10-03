@@ -27,9 +27,9 @@ A Flutter package that allows you to display logs on the screen of your app for 
 
 2. Configure your `main.dart` to integrate the library:
 
-   - wrap your `runApp()` method in main with `runZonedGuarded()`
-   - in the `body` function initialize the logger by calling `OnscreenLogger.init();`
-   - in the `onError()` function call logger's `onError()` method
+   - wrap your `runApp()` method in main with `runZonedGuarded()`.
+   - in the `body` function initialize the logger by calling `OnscreenLogger.init();`.
+   - in the `onError()` function call logger's `onError()` method.
 
     ```dart
     main() {
@@ -47,9 +47,9 @@ A Flutter package that allows you to display logs on the screen of your app for 
     }
     ```
 
-   - wrap your `MaterialApp()` widget with a `Stack()` and `Directionality()`
-   - add `LogOverlayWidget()` widget below it
-   - Note: you can add a condition here to show/hide the on-screen logger based on your use cases
+   - wrap your `MaterialApp()` widget with a `Stack()` and `Directionality()` widgets.
+   - add `LogOverlayWidget()` widget below it.
+   - Note: you can add a condition here to show/hide the on-screen logger based on your use cases.
 
    ```dart
    Directionality(
@@ -68,7 +68,7 @@ A Flutter package that allows you to display logs on the screen of your app for 
 
 ## Usage
 
-You can use the on-screen logger to log your own custom message through out your project
+You can use the on-screen logger to log your own custom message through out your project.
 
    ```dart
    OnscreenLogger.log(

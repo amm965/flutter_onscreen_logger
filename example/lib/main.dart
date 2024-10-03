@@ -2,9 +2,6 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_onscreen_logger/data/log_item_model.dart';
-import 'package:flutter_onscreen_logger/data/log_item_type.dart';
-import 'package:flutter_onscreen_logger/logger_overlay/logger_overlay_view.dart';
 import 'package:flutter_onscreen_logger/onscreen_logger.dart';
 import 'package:word_generator/word_generator.dart';
 
@@ -53,7 +50,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   Future<void> _generateRandomLogItems({int numberOfItems = 20}) async {
     for (int i = 0; i < numberOfItems; i++) {
       await Future.delayed(
