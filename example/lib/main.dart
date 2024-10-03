@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_onscreen_logger/onscreen_logger.dart';
+import 'package:flutter_onscreen_logger/flutter_onscreen_logger.dart';
 import 'package:word_generator/word_generator.dart';
 
 void main() {
