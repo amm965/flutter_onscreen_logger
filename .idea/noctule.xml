@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NoctuleProjectSettings">
+    <option name="migratedAutodetectionSetting" value="true" />
+  </component>
+  <component name="NoctuleWorkspaceSettings">
+    <fileSettings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/a11y_assessments/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/a11y_assessments/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/a11y_assessments/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/a11y_assessments/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/complex_layout/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/complex_layout/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/complex_layout/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/complex_layout/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/imitation_game_swiftui/hello_world_swiftui.xcodeproj/project.pbxproj">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/imitation_game_swiftui/hello_world_swiftui.xcodeproj/project.pbxproj</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/macrobenchmarks/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/macrobenchmarks/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/macrobenchmarks/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/macrobenchmarks/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/microbenchmarks/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/microbenchmarks/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/platform_views_layout/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/platform_views_layout/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/platform_views_layout_hybrid_composition/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/platform_views_layout_hybrid_composition/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/test_apps/stocks/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/benchmarks/test_apps/stocks/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/channels/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/channels/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/channels/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/channels/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/darwin_add2app_swiftpm/MacOSNativeProject/MacOSNativeProject.xcodeproj/project.pbxproj">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/darwin_add2app_swiftpm/MacOSNativeProject/MacOSNativeProject.xcodeproj/project.pbxproj</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/darwin_add2app_swiftpm/iOSNativeProject/iOSNativeProject.xcodeproj/project.pbxproj">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/darwin_add2app_swiftpm/iOSNativeProject/iOSNativeProject.xcodeproj/project.pbxproj</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/data_asset_app/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/data_asset_app/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/external_textures/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/external_textures/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/external_ui/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/external_ui/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flavors/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flavors/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flavors/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flavors/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flutter_gallery/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flutter_gallery/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flutter_gallery/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/flutter_gallery/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_add2app_life_cycle/ios_add2app.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_add2app_life_cycle/ios_add2app.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_add2app_uiscene/NativeSwiftUIExperiment/NativeSwiftUIExperiment.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_add2app_uiscene/NativeSwiftUIExperiment/NativeSwiftUIExperiment.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_add2app_uiscene/NativeUIKitSwiftExperiment/NativeUIKitSwiftExperiment.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_add2app_uiscene/NativeUIKitSwiftExperiment/NativeUIKitSwiftExperiment.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_app_with_extensions/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_app_with_extensions/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_host_app/Host.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_host_app/Host.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_host_app_swift/Host.xcodeproj/project.pbxproj">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_host_app_swift/Host.xcodeproj/project.pbxproj</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_platform_view_tests/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ios_platform_view_tests/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/non_nullable/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/non_nullable/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/platform_interaction/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/platform_interaction/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/release_smoke_test/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/release_smoke_test/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/spell_check/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/spell_check/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ui/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ui/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ui/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/ui/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/windowing_test/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/integration_tests/windowing_test/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/manual_tests/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/manual_tests/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/dev/manual_tests/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/dev/manual_tests/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/engine/src/flutter/testing/ios/IosBenchmarks/IosBenchmarks.xcodeproj/project.pbxproj">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/engine/src/flutter/testing/ios/IosBenchmarks/IosBenchmarks.xcodeproj/project.pbxproj</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/engine/src/flutter/testing/ios/IosUnitTests/IosUnitTests.xcodeproj/project.pbxproj">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/engine/src/flutter/testing/ios/IosUnitTests/IosUnitTests.xcodeproj/project.pbxproj</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/engine/src/flutter/testing/ios_scenario_app/ios/Scenarios.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/engine/src/flutter/testing/ios_scenario_app/ios/Scenarios.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/api/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/api/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/api/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/api/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/flutter_view/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/flutter_view/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/flutter_view/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/flutter_view/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/hello_world/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/hello_world/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/hello_world/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/hello_world/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/image_list/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/image_list/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/image_list/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/image_list/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/layers/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/layers/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/layers/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/layers/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/multiple_windows/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/multiple_windows/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_channel/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_channel/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_channel/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_channel/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_channel_swift/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_channel_swift/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_view/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_view/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_view/macos/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/examples/platform_view/macos/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app/ios.tmpl/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app/ios.tmpl/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app/macos.tmpl/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app/macos.tmpl/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app_shared/ios.tmpl/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app_shared/ios.tmpl/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app_shared/macos.tmpl/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/app_shared/macos.tmpl/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/xcode/ios/custom_application_bundle/Runner.xcodeproj.tmpl/project.pbxproj">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/flutter_tools/templates/xcode/ios/custom_application_bundle/Runner.xcodeproj.tmpl/project.pbxproj</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/integration_test/example/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/integration_test/example/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/integration_test/integration_test_macos/macos/integration_test_macos/Package.swift">
+        <projectSettings projectType="noctule.spm">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/integration_test/integration_test_macos/macos/integration_test_macos/Package.swift</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/.fvm/flutter_sdk/packages/integration_test/ios/integration_test/Package.swift">
+        <projectSettings projectType="noctule.spm">
+          <filePath>$PROJECT_DIR$/.fvm/flutter_sdk/packages/integration_test/ios/integration_test/Package.swift</filePath>
+        </projectSettings>
+      </settings>
+      <settings filePath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/contents.xcworkspacedata">
+        <projectSettings projectType="noctule.xcode">
+          <filePath>$PROJECT_DIR$/example/ios/Runner.xcworkspace/contents.xcworkspacedata</filePath>
+        </projectSettings>
+      </settings>
+    </fileSettings>
+  </component>
+  <component name="SwiftToolchain">
+    <option name="toolchain" value="xcode-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift" />
+  </component>
+</project>
