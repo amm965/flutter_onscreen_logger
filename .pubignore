@@ -2,9 +2,9 @@
 .idea/
 .fvm/
 .fvmrc
+*.iml
 .dart_tool/
 build/
-packages/
 **/.dart_tool/
 **/build/
 **/local.properties

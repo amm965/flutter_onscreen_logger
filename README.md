@@ -364,7 +364,7 @@ fvm dart pub publish --dry-run
 ```
 
 Run analysis and tests in `example/` and each connector directory too. Publish
-the core version 3 package before the connectors, which depend on `^3.0.0`.
+the core version 3.0.0 package before the connectors, which depend on `^3.0.0`.
 Pub.dev assigns the final hosted score after publication and reanalysis.
 
 
