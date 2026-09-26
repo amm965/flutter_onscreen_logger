@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'data/log_item_model.dart';
 import 'data/log_item_type.dart';
+import 'data/network_log_options.dart';
 import 'logger_overlay/controllers/logger_overlay_controller.dart';
 
 /// This class provides an interface for logging messages to an on-screen logger.
@@ -34,10 +35,12 @@ class OnScreenLog {
       LogItemType.error,
     },
     bool autoScroll = true,
+    NetworkLogOptions networkLogOptions = const NetworkLogOptions(),
   }) => configure(
     enabled: enabled,
     enabledTypes: enabledTypes,
     autoScroll: autoScroll,
+    networkLogOptions: networkLogOptions,
   );
 
   /// Updates only the supplied options for the current session.
@@ -50,10 +53,12 @@ class OnScreenLog {
     bool? enabled,
     Set<LogItemType>? enabledTypes,
     bool? autoScroll,
+    NetworkLogOptions? networkLogOptions,
   }) => _loggerController.configure(
     enabled: enabled,
     enabledTypes: enabledTypes,
     autoScroll: autoScroll,
+    networkLogOptions: networkLogOptions,
   );
 
   /// Whether capture is enabled, independently of overlay visibility.
@@ -66,6 +71,10 @@ class OnScreenLog {
 
   /// An immutable snapshot of the types eligible for capture.
   static Set<LogItemType> get enabledTypes => _loggerController.enabledTypes;
+
+  /// Network capture options used by connectors without a local override.
+  static NetworkLogOptions get networkLogOptions =>
+      _loggerController.networkLogOptions;
 
   /// Whether a new [type] entry will be captured with the current settings.
   /// Can be checked before constructing expensive custom log payloads.

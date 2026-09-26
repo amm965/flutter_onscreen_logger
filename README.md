@@ -7,7 +7,7 @@
 A Flutter package that displays logs over your app for easier debugging and can
 capture a session without an overlay for sharing through your support flow.
 
-![flutter_onscreen_logger](https://i.ghttps://i.giphy.comiphy.com/media/v1.Y2lkPTc5MGI3NjExNTloemZxbjdremRzdG9jNW1od2doajBzZHc3MHNmZ3NubmtvdzVvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VIfJGa3CyELfid6yfC/giphy.gif)
+![flutter_onscreen_logger](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTloemZxbjdremRzdG9jNW1od2doajBzZHc3MHNmZ3NubmtvdzVvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VIfJGa3CyELfid6yfC/giphy.gif)
 
 ## Features
 
@@ -157,6 +157,7 @@ OnScreenLog.init(
 | `enabled` | `true` | Whether new entries are captured at all, including when the overlay is absent. |
 | `enabledTypes` | Every `LogItemType` | Types accepted into the session. An empty set captures nothing. |
 | `autoScroll` | `true` | Whether the overlay follows new entries while already at the bottom. |
+| `networkLogOptions` | `NetworkLogOptions()` | Which HTTP headers and bodies connectors capture and the redactor applied before storage. |
 
 Disabling capture discards future entries from `OnScreenLog` methods, the default
 Dio/HTTP connectors, and installed Flutter error capture. Existing entries remain
@@ -306,13 +307,33 @@ dependency_overrides:
     path: /path/to/flutter_onscreen_logger
 ```
 
-The connectors log methods, URL paths, response status, and failures. Headers,
-URL credentials, and query values are omitted. Dio can log payloads with
-`OnScreenLoggerInterceptor(logBodies: true)`; enable this only when the payload
-is suitable for sharing. Stream and multipart bodies are omitted. The HTTP
-connector does not inspect payloads and preserves streaming behavior. Each
-connector accepts an optional `log: (LogItem item) { ... }` callback for a custom
-sink. Logging failures do not interrupt requests.
+The connectors log methods, URL paths, response status, and failures. URL
+credentials and query values are omitted. Headers and bodies stay off by
+default. Enable selected fields and redact their formatted text before it enters
+the session:
+
+```dart
+OnScreenLog.init(
+  networkLogOptions: NetworkLogOptions(
+    includeRequestHeaders: true,
+    includeResponseHeaders: true,
+    includeRequestBody: true,
+    includeResponseBody: true,
+    redactor: LogRedactor.redact, // Your app's redactor, e.g. token/password rules.
+  ),
+);
+```
+
+`NetworkLogOptions` can also be passed to an individual
+`OnScreenLoggerInterceptor(options: ...)` or `OnScreenLoggerClient(options: ...)`
+to override the global setting. Redaction runs before the entry is stored, so
+the overlay, copy action, and shared session use the same sanitized snapshot.
+Implement the callback to return safe text, for example by redacting sensitive
+JSON keys and token patterns. `includeResponseBody` captures decoded Dio
+responses; the HTTP connector does not read or buffer response streams. It
+captures buffered `http.Request` bodies only when enabled. Each connector
+accepts an optional `log: (LogItem item) { ... }` callback for a custom sink.
+Logging failures do not interrupt requests.
 
 ## Capturing a session without the overlay
 

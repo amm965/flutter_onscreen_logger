@@ -24,6 +24,7 @@ class HttpLogDetails {
     this.requestId,
     this.statusCode,
     this.duration,
+    this.headers,
     this.body,
     this.error,
   });
@@ -46,6 +47,9 @@ class HttpLogDetails {
   /// Elapsed time as measured by the connector at this stage.
   final Duration? duration;
 
+  /// Formatted, already-redacted headers captured for this request or response.
+  final String? headers;
+
   /// Captured payload text, usually formatted JSON. Null means not captured.
   final String? body;
 
@@ -59,6 +63,7 @@ class HttpLogDetails {
     if (statusCode != null) 'HTTP status: $statusCode',
     if (duration != null) 'Elapsed: ${duration!.inMilliseconds} ms',
     if (error != null) 'Failure: $error',
+    if (headers != null) 'Headers:\n$headers',
     if (body != null) 'Body:\n$body',
   ].join('\n');
 

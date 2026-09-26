@@ -4,6 +4,10 @@ import 'package:http/http.dart' as http;
 
 void main() {
   OnScreenLog.init(enabled: true);
+  createHttpClient();
+}
+
+OnScreenLoggerClient createHttpClient() {
   final client = OnScreenLoggerClient(http.Client());
-  // Route requests through client, then call client.close() when finished.
+  return client;
 }

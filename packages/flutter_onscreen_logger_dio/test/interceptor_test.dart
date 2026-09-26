@@ -214,6 +214,46 @@ void main() {
   );
 
   test(
+    'captures configured headers and redacts them before storing logs',
+    () async {
+      OnScreenLog.init(
+        networkLogOptions: NetworkLogOptions(
+          includeRequestHeaders: true,
+          includeResponseHeaders: true,
+          includeRequestBody: true,
+          includeResponseBody: true,
+          redactor: (text) => text.replaceAll('top-secret', '[redacted]'),
+        ),
+      );
+      final adapter = Adapter()
+        ..respond = (request) async => ResponseBody.fromString(
+          '{"access_token":"top-secret"}',
+          200,
+          headers: {
+            'x-session': ['top-secret'],
+          },
+        );
+      final dio = Dio()..httpClientAdapter = adapter;
+      dio.interceptors.add(OnScreenLoggerInterceptor());
+      await dio.post<dynamic>(
+        'https://example.com',
+        data: {'password': 'top-secret'},
+        options: Options(headers: {'authorization': 'top-secret'}),
+      );
+
+      final items = getx.Get.find<LoggerOverlayController>().logItems;
+      expect(items, hasLength(2));
+      expect(items.first.httpDetails!.headers, contains('[redacted]'));
+      expect(items.last.httpDetails!.headers, contains('[redacted]'));
+      expect(items.first.httpDetails!.body, contains('[redacted]'));
+      expect(items.last.httpDetails!.body, contains('[redacted]'));
+      expect(items.first.description, isNot(contains('top-secret')));
+      expect(items.last.description, isNot(contains('top-secret')));
+      dio.close();
+    },
+  );
+
+  test(
     'stream and multipart payloads are omitted without consuming them',
     () async {
       final logs = <LogItem>[];

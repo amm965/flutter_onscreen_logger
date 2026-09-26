@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'data/log_item_model.dart';
 import 'data/log_item_type.dart';
+import 'data/network_log_options.dart';
 import 'onscreen_log.dart';
 
 /// This class provides an interface for logging messages to an on-screen logger.
@@ -27,10 +28,12 @@ class OnscreenLogger {
       LogItemType.error,
     },
     bool autoScroll = true,
+    NetworkLogOptions networkLogOptions = const NetworkLogOptions(),
   }) => OnScreenLog.init(
     enabled: enabled,
     enabledTypes: enabledTypes,
     autoScroll: autoScroll,
+    networkLogOptions: networkLogOptions,
   );
 
   /// Configures global error handling for Flutter errors.

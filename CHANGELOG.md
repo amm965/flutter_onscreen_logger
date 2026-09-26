@@ -11,6 +11,8 @@
   and auto-scroll. Capture is independent of overlay visibility and preserves
   existing entries for sharing when paused or disabled.
 - Add examples for background session capture and production support sharing.
+- Add configurable request/response header and body capture for both network
+  connectors, with redaction applied before entries are stored or shared.
 
 ### Updated
 
@@ -22,6 +24,8 @@
   development files from publication.
 - Improve logger styling, preserve expansion state across filters, and guard
   scrolling after the overlay detaches.
+- Remove the direct `intl` dependency by formatting the logger's fixed timestamp
+  format with `DateTime`, avoiding a conflict with Flutter's pinned intl version.
 
 ## 2.0.0
 
