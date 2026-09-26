@@ -7,7 +7,7 @@
 A Flutter package that displays logs over your app for easier debugging and can
 capture a session without an overlay for sharing through your support flow.
 
-![flutter_onscreen_logger](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTloemZxbjdremRzdG9jNW1od2doajBzZHc3MHNmZ3NubmtvdzVvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VIfJGa3CyELfid6yfC/giphy.gif)
+![flutter_onscreen_logger](https://i.ghttps://i.giphy.comiphy.com/media/v1.Y2lkPTc5MGI3NjExNTloemZxbjdremRzdG9jNW1od2doajBzZHc3MHNmZ3NubmtvdzVvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VIfJGa3CyELfid6yfC/giphy.gif)
 
 ## Features
 
@@ -366,6 +366,21 @@ fvm dart pub publish --dry-run
 Run analysis and tests in `example/` and each connector directory too. Publish
 the core version 3.0.0 package before the connectors, which depend on `^3.0.0`.
 Pub.dev assigns the final hosted score after publication and reanalysis.
+
+The root `.pubignore` keeps the nested connector sources out of the core package
+archive. Export each connector directory outside the repository before
+publishing it, so it is checked as its own package:
+
+```sh
+mkdir -p /tmp/logger-release
+git archive HEAD packages/flutter_onscreen_logger_dio | tar -x -C /tmp/logger-release
+cd /tmp/logger-release/packages/flutter_onscreen_logger_dio
+fvm dart pub publish --dry-run
+```
+
+Repeat with `flutter_onscreen_logger_http` in the archive path and working
+directory for the HTTP connector. Publish the core package first so the
+connectors' `^3.0.0` dependency is available.
 
 
 ### Try both connectors in the example
