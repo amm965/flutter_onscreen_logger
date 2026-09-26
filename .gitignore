@@ -27,4 +27,8 @@ doc/api/
 .flutter-plugins-dependencies
 
 # FVM Version Cache
-.fvm/
+# FVM keeps SDK installations outside source control.
+.fvm/flutter_sdk
+
+# Kotlin build cache
+.kotlin/

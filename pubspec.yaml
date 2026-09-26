@@ -1,30 +1,24 @@
 name: flutter_onscreen_logger
 description: "A Flutter package that allows you to display logs on the screen of your app for easier debugging."
-version: 2.0.0
+version: 3.0.0
 homepage: https://github.com/amm965/flutter_onscreen_logger
 repository: https://github.com/amm965/flutter_onscreen_logger
 
-
 environment:
-  sdk: '>=3.2.4 <4.0.0'
-  flutter: ">=1.17.0"
+  sdk: ^3.12.0
+  flutter: ">=3.44.3"
 
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.20.1
+  intl: ^0.20.3
 
-  get: ^4.6.6
-  fluttertoast: ^8.2.8
-  path_provider: ^2.1.4
-  share_plus: ^10.1.3
+  get: ^4.7.3
+  fluttertoast: ^10.0.0
+  path_provider: ^2.1.6
+  share_plus: ^13.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
-
-flutter:
-  assets:
-    - lib/src/assets/
-
+  flutter_lints: ^6.0.0

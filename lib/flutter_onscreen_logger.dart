@@ -1,4 +1,5 @@
-library flutter_onscreen_logger;
+/// On-screen logging, session sharing, and message filtering for Flutter.
+library;
 
 export 'src/flutter_onscreen_logger.dart';
 export 'src/onscreen_log.dart';

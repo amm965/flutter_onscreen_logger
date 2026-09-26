@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../data/log_item_type.dart';
+import '../../extensions/log_item_type_extension.dart';
 import '../controllers/logger_overlay_controller.dart';
-import 'logger_list_item.dart';
+import 'logger_log_list.dart';
 
 /// A widget that provides an on-screen logger overlay with options to view, share, or clear logs.
 class LoggerOverlayWidget extends StatelessWidget {
@@ -44,96 +46,132 @@ class LoggerOverlayWidget extends StatelessWidget {
   /// Builds the detailed logger view with log entries and action buttons.
   Widget _buildLoggerView() {
     return Expanded(
-      child: Container(
-        color: Colors.black,
-        child: SafeArea(
-          child: Column(
-            children: [
-              const Text(
-                'OnScreen Logger', // Logger title.
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Material(
+          color: Colors.black,
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const SizedBox(width: 12),
+                    const Expanded(
+                      child: Text(
+                        'OnScreen Logger',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    PopupMenuButton<String>(
+                      tooltip: 'Logger options',
+                      icon: const Icon(Icons.more_vert, color: Colors.white),
+                      onSelected: (value) {
+                        switch (value) {
+                          case 'logging':
+                            _controller.toggleLogging();
+                          case 'scroll':
+                            _controller.toggleAutoScroll();
+                          case 'share':
+                            _controller.saveAndShareLogItems();
+                          case 'clear':
+                            _controller.clearAll();
+                        }
+                      },
+                      itemBuilder: (_) => [
+                        PopupMenuItem(
+                          value: 'logging',
+                          child: _menuLabel(
+                            _controller.isLoggingPaused.value
+                                ? Icons.play_arrow
+                                : Icons.pause,
+                            _controller.isLoggingPaused.value
+                                ? 'Resume logging'
+                                : 'Pause logging',
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: 'scroll',
+                          child: _menuLabel(
+                            _controller.autoScroll.value
+                                ? Icons.sync
+                                : Icons.sync_disabled,
+                            _controller.autoScroll.value
+                                ? 'Disable auto-scroll'
+                                : 'Enable auto-scroll',
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: 'share',
+                          child: _menuLabel(Icons.share, 'Share all'),
+                        ),
+                        PopupMenuItem(
+                          value: 'clear',
+                          child: _menuLabel(Icons.delete_outline, 'Clear all'),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 4),
-              Expanded(
-                child: ListView.builder(
-                  controller: _controller.listViewScrollController,
-                  itemCount: _controller.logItems.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return LoggerListItem(index: index); // Displays a log item.
-                  },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for (final type in LogItemType.values)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: FilterChip(
+                              label: Text(type.name),
+                              avatar: Icon(
+                                type.itemIconByType,
+                                size: 18,
+                                color: _controller.selectedTypes.contains(type)
+                                    ? Colors.black
+                                    : type.itemColorByType,
+                              ),
+                              showCheckmark: false,
+                              backgroundColor: Colors.black,
+                              selectedColor: type.itemColorByType,
+                              side: BorderSide(color: type.itemColorByType),
+                              labelStyle: TextStyle(
+                                color: _controller.selectedTypes.contains(type)
+                                    ? Colors.black
+                                    : type.itemColorByType,
+                              ),
+                              selected: _controller.selectedTypes.contains(
+                                type,
+                              ),
+                              onSelected: (_) => _controller.toggleType(type),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _buildActionButton(
-                    text: 'Share All', // Share button.
-                    icon: Icons.share,
-                    color: Colors.green[500]!,
-                    onPressed: _controller.saveAndShareLogItems,
-                  ),
-                  const SizedBox(width: 16),
-                  _buildActionButton(
-                    text: 'Clear All', // Clear button.
-                    icon: Icons.delete_outline_rounded,
-                    color: Colors.red,
-                    onPressed: _controller.clearAll,
-                  ),
-                ],
-              ),
-            ],
+                Expanded(child: LoggerLogList(controller: _controller)),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  /// Builds an action button with a custom text, icon, and color.
-  Widget _buildActionButton({
-    required String text,
-    required IconData icon,
-    required Color color,
-    required Function() onPressed,
-  }) {
-    return OutlinedButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-        foregroundColor: WidgetStateProperty.resolveWith<Color>(
-          (states) => states.contains(WidgetState.pressed)
-              ? Colors.black // Pressed color.
-              : color, // Default color.
-        ),
-        backgroundColor: WidgetStateProperty.resolveWith<Color>(
-          (states) => states.contains(WidgetState.pressed)
-              ? color // Pressed color.
-              : Colors.black, // Default color.
-        ),
-        side: WidgetStateProperty.resolveWith<BorderSide>(
-          (states) => states.contains(WidgetState.pressed)
-              ? const BorderSide(
-                  width: 2, color: Colors.black) // Pressed border.
-              : BorderSide(width: 2, color: color), // Default border.
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Row(
-          children: [
-            Icon(icon, size: 16), // Button icon.
-            const SizedBox(width: 8),
-            Text(text), // Button text.
-          ],
-        ),
-      ),
-    );
-  }
+  Widget _menuLabel(IconData icon, String label) => Row(
+    children: [
+      Icon(icon, size: 20),
+      const SizedBox(width: 12),
+      Flexible(child: Text(label)),
+    ],
+  );
 
   /// Builds the toggle button to expand or collapse the logger overlay.
   Widget _buildLogToggleButton() {

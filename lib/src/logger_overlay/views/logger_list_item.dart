@@ -5,18 +5,17 @@ import '../../data/log_item_model.dart';
 import '../../extensions/date_extension.dart';
 import '../../extensions/log_item_type_extension.dart';
 import '../controllers/logger_overlay_controller.dart';
+import 'http_log_card.dart';
 
 /// Represents a single log item in the logger overlay list.
 class LoggerListItem extends StatelessWidget {
   final LoggerOverlayController _controller = Get.find();
+
   ///item index
   final int index;
 
   /// Creates a logger list item with the given index.
-  LoggerListItem({
-    super.key,
-    required this.index,
-  });
+  LoggerListItem({super.key, required this.index});
 
   /// Builds the main widget for a single log item.
   /// Displays an expandable container with a header and body.
@@ -24,14 +23,26 @@ class LoggerListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final LogItem currentItem = _controller.logItems[index];
     final Color itemColor = currentItem.type.itemColorByType;
+    if (currentItem.httpDetails != null) {
+      return Obx(
+        () => HttpLogCard(
+          item: currentItem,
+          index: index,
+          expanded: _controller.logItemsExpansionState[index],
+          onToggle: () => _controller.toggleItemExpansion(index),
+          onCopy: () => _controller.copyErrorInfo(currentItem),
+        ),
+      );
+    }
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), // Rounded corners.
-          border:
-              Border.all(color: itemColor), // Border color based on log type.
+          border: Border.all(
+            color: itemColor,
+          ), // Border color based on log type.
         ),
         child: Column(
           children: [
@@ -42,13 +53,20 @@ class LoggerListItem extends StatelessWidget {
               child: Obx(
                 () => AnimatedCrossFade(
                   crossFadeState: _controller.logItemsExpansionState[index]
-                      ? CrossFadeState.showFirst // Expanded state.
+                      ? CrossFadeState
+                            .showFirst // Expanded state.
                       : CrossFadeState.showSecond, // Collapsed state.
                   duration: const Duration(milliseconds: 200),
-                  firstChild:
-                      _buildExpandedItemBody(index, currentItem, itemColor),
-                  secondChild:
-                      _buildCollapsedItemBody(index, currentItem, itemColor),
+                  firstChild: _buildExpandedItemBody(
+                    index,
+                    currentItem,
+                    itemColor,
+                  ),
+                  secondChild: _buildCollapsedItemBody(
+                    index,
+                    currentItem,
+                    itemColor,
+                  ),
                 ),
               ),
             ),
@@ -102,7 +120,7 @@ class LoggerListItem extends StatelessWidget {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -110,7 +128,10 @@ class LoggerListItem extends StatelessWidget {
   /// Builds the collapsed view of the log item's body.
   /// Shows a truncated description of the log.
   Widget _buildCollapsedItemBody(
-      int index, LogItem currentItem, Color itemColor) {
+    int index,
+    LogItem currentItem,
+    Color itemColor,
+  ) {
     return GestureDetector(
       onTap: () => _controller.toggleItemExpansion(index), // Toggle expansion.
       child: Text(
@@ -124,7 +145,10 @@ class LoggerListItem extends StatelessWidget {
   /// Builds the expanded view of the log item's body.
   /// Shows the full description, timestamp, and a copy icon.
   Widget _buildExpandedItemBody(
-      int index, LogItem currentItem, Color itemColor) {
+    int index,
+    LogItem currentItem,
+    Color itemColor,
+  ) {
     return GestureDetector(
       onTap: () => _controller.toggleItemExpansion(index), // Toggle expansion.
       child: Column(
