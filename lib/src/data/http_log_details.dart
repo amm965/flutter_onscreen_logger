@@ -31,7 +31,7 @@ class HttpLogDetails {
 
   /// HTTP method, such as GET or POST.
   final String method;
-
+ 
   /// The captured URL, with any redaction already applied.
   final String url;
 

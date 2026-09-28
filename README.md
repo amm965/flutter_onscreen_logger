@@ -7,7 +7,8 @@
 A Flutter package that displays logs over your app for easier debugging and can
 capture a session without an overlay for sharing through your support flow.
 
-![flutter_onscreen_logger](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTloemZxbjdremRzdG9jNW1od2doajBzZHc3MHNmZ3NubmtvdzVvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VIfJGa3CyELfid6yfC/giphy.gif)
+![flutter_onscreen_logger](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXlwNmRmajJ6dzJ6ZHhhdTAxZDBoYzl3dzQzYWs0bGZoMXc3MmhzbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lJR4AQpB2FzPVUpgry/giphy.gif)
+![flutter_onscreen_logger](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWxhanRtNnRsajVmdzV1dGI5OXJ6NW51a3gyb3ZicW82N2ZnMzl1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JlX7JM0AX904SKk2AB/giphy.gif)
 
 ## Features
 
