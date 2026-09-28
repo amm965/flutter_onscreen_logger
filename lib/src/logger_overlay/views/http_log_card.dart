@@ -223,36 +223,7 @@ class HttpLogCard extends StatelessWidget {
                                 fontSize: 12,
                               ),
                             )
-                          : Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF090C11),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: ConstrainedBox(
-                                constraints: const BoxConstraints(
-                                  maxHeight: 260,
-                                ),
-                                child: SingleChildScrollView(
-                                  primary: false,
-                                  child: SingleChildScrollView(
-                                    primary: false,
-                                    scrollDirection: Axis.horizontal,
-                                    child: SelectableText(
-                                      details.body!.isEmpty
-                                          ? '(empty)'
-                                          : details.body!,
-                                      style: const TextStyle(
-                                        color: Color(0xFFD5E4F7),
-                                        fontFamily: 'monospace',
-                                        fontSize: 12,
-                                        height: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                          : _capturedText(details.body!),
                     ),
                     Align(
                       alignment: Alignment.centerRight,
@@ -281,13 +252,23 @@ class HttpLogCard extends StatelessWidget {
       color: const Color(0xFF090C11),
       borderRadius: BorderRadius.circular(8),
     ),
-    child: SelectableText(
-      text.isEmpty ? '(empty)' : text,
-      style: const TextStyle(
-        color: Color(0xFFD5E4F7),
-        fontFamily: 'monospace',
-        fontSize: 12,
-        height: 1.5,
+    child: ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 260),
+      child: SingleChildScrollView(
+        primary: false,
+        child: SingleChildScrollView(
+          primary: false,
+          scrollDirection: Axis.horizontal,
+          child: SelectableText(
+            text.isEmpty ? '(empty)' : text,
+            style: const TextStyle(
+              color: Color(0xFFD5E4F7),
+              fontFamily: 'monospace',
+              fontSize: 12,
+              height: 1.5,
+            ),
+          ),
+        ),
       ),
     ),
   );

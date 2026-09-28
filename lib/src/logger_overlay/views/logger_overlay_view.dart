@@ -32,9 +32,9 @@ class LoggerOverlayWidget extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildLogToggleButton(),
+              _buildLogToggleButton(context),
               // Toggle button for the logger overlay.
-              if (_controller.isExpanded.value) _buildLoggerView(),
+              if (_controller.isExpanded.value) _buildLoggerView(context),
               // Logger view.
             ],
           ),
@@ -44,10 +44,13 @@ class LoggerOverlayWidget extends StatelessWidget {
   }
 
   /// Builds the detailed logger view with log entries and action buttons.
-  Widget _buildLoggerView() {
+  Widget _buildLoggerView(BuildContext hostContext) {
+    final hostTheme = Theme.of(hostContext);
     return Expanded(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: hostTheme,
+        darkTheme: hostTheme,
         home: Material(
           color: Colors.black,
           child: SafeArea(
@@ -71,7 +74,10 @@ class LoggerOverlayWidget extends StatelessWidget {
                     ),
                     PopupMenuButton<String>(
                       tooltip: 'Logger options',
-                      icon: const Icon(Icons.more_vert, color: Colors.white),
+                      icon: Icon(
+                        Icons.more_vert,
+                        color: hostTheme.colorScheme.primary,
+                      ),
                       onSelected: (value) {
                         switch (value) {
                           case 'logging':
@@ -174,7 +180,7 @@ class LoggerOverlayWidget extends StatelessWidget {
   );
 
   /// Builds the toggle button to expand or collapse the logger overlay.
-  Widget _buildLogToggleButton() {
+  Widget _buildLogToggleButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8),
       child: ClipRRect(
@@ -187,7 +193,7 @@ class LoggerOverlayWidget extends StatelessWidget {
           child: Container(
             height: 45,
             width: 45,
-            color: Get.theme.primaryColor,
+            color: Theme.of(context).colorScheme.primary,
             child: const Center(
               child: Icon(
                 Icons.list, // Icon for the toggle button.

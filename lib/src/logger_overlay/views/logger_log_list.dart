@@ -125,6 +125,8 @@ class _LoggerLogListState extends State<LoggerLogList> {
                     heroTag: null,
                     onPressed: () =>
                         widget.controller.scrollToBottom(force: true),
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

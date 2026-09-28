@@ -144,6 +144,9 @@ void main() {
           url: 'https://example.com/export',
           phase: HttpLogPhase.response,
           statusCode: 200,
+          headers: HttpLogDetails.formatBody(
+            List.generate(300, (i) => {'x-header-row': i}),
+          ),
           body: body,
         ),
       );
@@ -162,7 +165,7 @@ void main() {
           ),
         ),
       );
-      final panel = find.descendant(
+      final panels = find.descendant(
         of: find.byType(HttpLogCard),
         matching: find.byWidgetPredicate(
           (widget) =>
@@ -170,10 +173,17 @@ void main() {
               widget.scrollDirection == Axis.vertical,
         ),
       );
-      expect(tester.getSize(panel).height, lessThanOrEqualTo(260));
+      expect(panels, findsNWidgets(2));
+      for (final panel in panels.evaluate()) {
+        expect(
+          tester.getSize(find.byElementPredicate((e) => e == panel)).height,
+          lessThanOrEqualTo(260),
+        );
+      }
       expect(find.text('Copy log').hitTestable(), findsOneWidget);
       expect(item.description, contains('"row": 299'));
-      await tester.drag(panel, const Offset(0, -180));
+      expect(item.description, contains('"x-header-row": 299'));
+      await tester.drag(panels.first, const Offset(0, -180));
       await tester.pumpAndSettle();
       expect(find.text('Copy log').hitTestable(), findsOneWidget);
       expect(tester.takeException(), isNull);
