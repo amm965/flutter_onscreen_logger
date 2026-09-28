@@ -18,8 +18,8 @@
 
 - **Breaking:** require Flutter 3.44.3 or newer and Dart 3.12 or newer.
 - Upgrade direct dependencies and Flutter lints to current stable releases.
-- Upgrade the example to Gradle 8.14, Android Gradle Plugin 8.13.2, Kotlin
-  2.3.21, Java 17, and iOS 15.
+- Upgrade the example to Gradle 9.7.1, Android Gradle Plugin 9.3.3, Kotlin
+  2.4.20, Java 17, and iOS 15.
 - Replace the checked-in Flutter SDK with a local FVM version and exclude
   development files from publication.
 - Improve logger styling, preserve expansion state across filters, and guard

@@ -360,9 +360,9 @@ The repository pins Flutter 3.44.3 in `.fvmrc`; run `fvm use 3.44.3` to install/
 that SDK on another machine. SDK installations are excluded from Git and pub
 archives. The `.fvm/flutter_sdk` link is generated locally by FVM.
 
-The Android example uses **Gradle 8.14**, **Android Gradle Plugin 8.13.2**,
-**Kotlin 2.3.21**, and Java **17** source/target compatibility. Run Gradle with
-JDK 17 or 21 (Flutter can use Android Studio's bundled JDK). The iOS example
+The Android example uses **Gradle 9.7.1**, **Android Gradle Plugin 9.3.3**,
+**Kotlin 2.4.20**, and Java **17** source/target compatibility. Run Gradle with
+JDK 17 or newer (Flutter can use Android Studio's bundled JDK). The iOS example
 targets iOS 15 or newer. Update consuming applications' native build settings
 before upgrading from version 2, since the latest plugin dependencies have
 higher platform/toolchain requirements.
