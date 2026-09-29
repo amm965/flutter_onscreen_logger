@@ -102,6 +102,40 @@ void main() {
   });
 
   test(
+    'captures configured headers and redacts them before storing logs',
+    () async {
+      OnScreenLog.init(
+        networkLogOptions: NetworkLogOptions(
+          includeRequestHeaders: true,
+          includeResponseHeaders: true,
+          includeRequestBody: true,
+          redactor: (text) => text.replaceAll('top-secret', '[redacted]'),
+        ),
+      );
+      final client = OnScreenLoggerClient(
+        MockClient(
+          (_) async =>
+              http.Response('ok', 200, headers: {'x-session': 'top-secret'}),
+        ),
+      );
+      addTearDown(client.close);
+      await client.post(
+        Uri.parse('https://example.com'),
+        body: '{"password":"top-secret"}',
+        headers: {'authorization': 'top-secret'},
+      );
+
+      final items = Get.find<LoggerOverlayController>().logItems;
+      expect(items, hasLength(2));
+      expect(items.first.httpDetails!.headers, contains('[redacted]'));
+      expect(items.last.httpDetails!.headers, contains('[redacted]'));
+      expect(items.first.httpDetails!.body, contains('[redacted]'));
+      expect(items.first.description, isNot(contains('top-secret')));
+      expect(items.last.description, isNot(contains('top-secret')));
+    },
+  );
+
+  test(
     'concurrent clients correlate results and time receipt of headers',
     () async {
       final logs = <LogItem>[];

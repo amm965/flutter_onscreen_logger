@@ -11,8 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.20.3
-
   get: ^4.7.3
   fluttertoast: ^10.0.0
   path_provider: ^2.1.6

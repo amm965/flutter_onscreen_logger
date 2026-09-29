@@ -7,7 +7,8 @@
 A Flutter package that displays logs over your app for easier debugging and can
 capture a session without an overlay for sharing through your support flow.
 
-![flutter_onscreen_logger](https://i.ghttps://i.giphy.comiphy.com/media/v1.Y2lkPTc5MGI3NjExNTloemZxbjdremRzdG9jNW1od2doajBzZHc3MHNmZ3NubmtvdzVvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VIfJGa3CyELfid6yfC/giphy.gif)
+![flutter_onscreen_logger](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXlwNmRmajJ6dzJ6ZHhhdTAxZDBoYzl3dzQzYWs0bGZoMXc3MmhzbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lJR4AQpB2FzPVUpgry/giphy.gif)
+![flutter_onscreen_logger](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWxhanRtNnRsajVmdzV1dGI5OXJ6NW51a3gyb3ZicW82N2ZnMzl1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JlX7JM0AX904SKk2AB/giphy.gif)
 
 ## Features
 
@@ -54,24 +55,53 @@ capture a session without an overlay for sharing through your support flow.
     }
     ```
 
-    - Wrap your `MaterialApp()` widget with a `Stack()` and `Directionality()` widgets.
-    - Add `LoggerOverlayWidget()` widget below it.
+    - Add the overlay using your app's `builder`, so it inherits the active app theme.
+    - Return a `Stack` containing the builder's `child` first and `LoggerOverlayWidget()` last.
     - Show the overlay when useful for your app. Its visibility is independent of capture. This example displays it only in debug mode (`kDebugMode` comes from `package:flutter/foundation.dart`).
 
    ```dart
-   Directionality(
-      textDirection: TextDirection.ltr, 
-      child: Stack(
-          children: [
-            MaterialApp(
-              //...other material app properties...
-              home: MyHomePage(title: 'MyApp'),
-            ),
-            if (kDebugMode) LoggerOverlayWidget(),
-          ],
-        ),
-    );
+   MaterialApp(
+     // ...your theme, routes, and other app properties...
+     home: MyHomePage(title: 'MyApp'),
+     builder: (context, child) => Stack(
+       fit: StackFit.expand,
+       children: [
+         child ?? const SizedBox.shrink(),
+         if (kDebugMode) LoggerOverlayWidget(),
+       ],
+     ),
+   );
    ```
+
+### App theme integration
+
+Use the same `builder` setup with `MaterialApp`, `MaterialApp.router`, or
+`GetMaterialApp`. The logger reads Flutter's inherited `Theme`, so it follows
+the active theme and runtime light/dark changes without depending on how the
+app manages theme state. The handle and jump button use `ThemeData.primaryColor`,
+and the options popup inherits the app's theme, including `popupMenuTheme`.
+Message cards and quick filters retain their type colors and black background.
+Quick filters use a fixed style with 8-pixel corners, independent of the app's
+chip shape, typography, and spacing. Accessibility text scaling still applies.
+
+If your app already has a builder, keep its existing content in the stack along
+with the logger. Keep the supplied `child` in the tree so navigation still works.
+
+**Migrating an existing integration:** move the logger from the outer
+`Stack(children: [MaterialApp(...), LoggerOverlayWidget()])` into the app's
+`builder`. A sibling cannot inherit the theme inside `MaterialApp` or
+`GetMaterialApp`. The package's earlier setup instructions placed it outside
+that theme.
+
+For custom placement outside the themed subtree, supply an explicit override:
+
+```dart
+LoggerOverlayWidget(theme: activeAppTheme)
+```
+
+Rebuild with the updated `ThemeData` whenever that external theme changes. The
+override takes precedence over the inherited theme. Without an override or an
+inherited theme, Flutter supplies its fallback theme.
 
 ## Usage
 
@@ -157,6 +187,7 @@ OnScreenLog.init(
 | `enabled` | `true` | Whether new entries are captured at all, including when the overlay is absent. |
 | `enabledTypes` | Every `LogItemType` | Types accepted into the session. An empty set captures nothing. |
 | `autoScroll` | `true` | Whether the overlay follows new entries while already at the bottom. |
+| `networkLogOptions` | `NetworkLogOptions()` | Which HTTP headers and bodies connectors capture and the redactor applied before storage. |
 
 Disabling capture discards future entries from `OnScreenLog` methods, the default
 Dio/HTTP connectors, and installed Flutter error capture. Existing entries remain
@@ -200,7 +231,7 @@ calls can stay in your application code:
 ```dart
 OnScreenLog.init(enabled: kDebugMode);
 
-// In the Stack around your MaterialApp:
+// In the Stack returned by your app's builder:
 if (kDebugMode) LoggerOverlayWidget(),
 ```
 
@@ -212,7 +243,7 @@ production settings or support page can offer a share button:
 ```dart
 OnScreenLog.init(enabled: true);
 
-// In the Stack around your MaterialApp:
+// In the Stack returned by your app's builder:
 if (kDebugMode) LoggerOverlayWidget(),
 
 // In your settings/support page:
@@ -306,13 +337,33 @@ dependency_overrides:
     path: /path/to/flutter_onscreen_logger
 ```
 
-The connectors log methods, URL paths, response status, and failures. Headers,
-URL credentials, and query values are omitted. Dio can log payloads with
-`OnScreenLoggerInterceptor(logBodies: true)`; enable this only when the payload
-is suitable for sharing. Stream and multipart bodies are omitted. The HTTP
-connector does not inspect payloads and preserves streaming behavior. Each
-connector accepts an optional `log: (LogItem item) { ... }` callback for a custom
-sink. Logging failures do not interrupt requests.
+The connectors log methods, URL paths, response status, and failures. URL
+credentials and query values are omitted. Headers and bodies stay off by
+default. Enable selected fields and redact their formatted text before it enters
+the session:
+
+```dart
+OnScreenLog.init(
+  networkLogOptions: NetworkLogOptions(
+    includeRequestHeaders: true,
+    includeResponseHeaders: true,
+    includeRequestBody: true,
+    includeResponseBody: true,
+    redactor: LogRedactor.redact, // Your app's redactor, e.g. token/password rules.
+  ),
+);
+```
+
+`NetworkLogOptions` can also be passed to an individual
+`OnScreenLoggerInterceptor(options: ...)` or `OnScreenLoggerClient(options: ...)`
+to override the global setting. Redaction runs before the entry is stored, so
+the overlay, copy action, and shared session use the same sanitized snapshot.
+Implement the callback to return safe text, for example by redacting sensitive
+JSON keys and token patterns. `includeResponseBody` captures decoded Dio
+responses; the HTTP connector does not read or buffer response streams. It
+captures buffered `http.Request` bodies only when enabled. Each connector
+accepts an optional `log: (LogItem item) { ... }` callback for a custom sink.
+Logging failures do not interrupt requests.
 
 ## Capturing a session without the overlay
 
@@ -339,9 +390,9 @@ The repository pins Flutter 3.44.3 in `.fvmrc`; run `fvm use 3.44.3` to install/
 that SDK on another machine. SDK installations are excluded from Git and pub
 archives. The `.fvm/flutter_sdk` link is generated locally by FVM.
 
-The Android example uses **Gradle 8.14**, **Android Gradle Plugin 8.13.2**,
-**Kotlin 2.3.21**, and Java **17** source/target compatibility. Run Gradle with
-JDK 17 or 21 (Flutter can use Android Studio's bundled JDK). The iOS example
+The Android example uses **Gradle 9.7.1**, **Android Gradle Plugin 9.3.3**,
+**Kotlin 2.4.20**, and Java **17** source/target compatibility. Run Gradle with
+JDK 17 or newer (Flutter can use Android Studio's bundled JDK). The iOS example
 targets iOS 15 or newer. Update consuming applications' native build settings
 before upgrading from version 2, since the latest plugin dependencies have
 higher platform/toolchain requirements.

@@ -12,6 +12,11 @@ HTTP connector locally. Published examples use the hosted connector packages;
 publish core 3.0.0 and both connector 1.0.0 packages before using those versions.
 
 The example calls `OnScreenLog.init()` at startup with all four capture types.
+It mounts the overlay in `MaterialApp.builder` to inherit the app's amber theme.
+The same integration works with `GetMaterialApp.builder` and follows runtime
+theme changes. For custom placement outside the app's theme, use
+`LoggerOverlayWidget(theme: activeAppTheme)` and rebuild when that theme changes.
+
 Capture and auto-scroll default to enabled; the overlay defaults to visible in
 debug builds and hidden in profile/release builds. Override these independently
 with compile-time defines:

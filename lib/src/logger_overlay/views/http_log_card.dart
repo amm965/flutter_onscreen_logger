@@ -204,6 +204,13 @@ class HttpLogCard extends StatelessWidget {
                           style: TextStyle(color: color, fontSize: 13),
                         ),
                       ),
+                    if (details.headers != null)
+                      _section(
+                        details.phase == HttpLogPhase.request
+                            ? 'REQUEST HEADERS'
+                            : 'RESPONSE HEADERS',
+                        _capturedText(details.headers!),
+                      ),
                     _section(
                       details.phase == HttpLogPhase.request
                           ? 'REQUEST BODY'
@@ -216,36 +223,7 @@ class HttpLogCard extends StatelessWidget {
                                 fontSize: 12,
                               ),
                             )
-                          : Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF090C11),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: ConstrainedBox(
-                                constraints: const BoxConstraints(
-                                  maxHeight: 260,
-                                ),
-                                child: SingleChildScrollView(
-                                  primary: false,
-                                  child: SingleChildScrollView(
-                                    primary: false,
-                                    scrollDirection: Axis.horizontal,
-                                    child: SelectableText(
-                                      details.body!.isEmpty
-                                          ? '(empty)'
-                                          : details.body!,
-                                      style: const TextStyle(
-                                        color: Color(0xFFD5E4F7),
-                                        fontFamily: 'monospace',
-                                        fontSize: 12,
-                                        height: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                          : _capturedText(details.body!),
                     ),
                     Align(
                       alignment: Alignment.centerRight,
@@ -267,6 +245,33 @@ class HttpLogCard extends StatelessWidget {
       ),
     );
   }
+
+  Widget _capturedText(String text) => Container(
+    padding: const EdgeInsets.all(12),
+    decoration: BoxDecoration(
+      color: const Color(0xFF090C11),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 260),
+      child: SingleChildScrollView(
+        primary: false,
+        child: SingleChildScrollView(
+          primary: false,
+          scrollDirection: Axis.horizontal,
+          child: SelectableText(
+            text.isEmpty ? '(empty)' : text,
+            style: const TextStyle(
+              color: Color(0xFFD5E4F7),
+              fontFamily: 'monospace',
+              fontSize: 12,
+              height: 1.5,
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
 
   Widget _badge(String label, Color color) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),

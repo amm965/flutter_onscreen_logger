@@ -11,17 +11,28 @@
   and auto-scroll. Capture is independent of overlay visibility and preserves
   existing entries for sharing when paused or disabled.
 - Add examples for background session capture and production support sharing.
+- Add configurable request/response header and body capture for both network
+  connectors, with redaction applied before entries are stored or shared.
+- Add an optional `LoggerOverlayWidget(theme: ...)` override for custom placement
+  outside the app's themed subtree.
 
 ### Updated
 
 - **Breaking:** require Flutter 3.44.3 or newer and Dart 3.12 or newer.
 - Upgrade direct dependencies and Flutter lints to current stable releases.
-- Upgrade the example to Gradle 8.14, Android Gradle Plugin 8.13.2, Kotlin
-  2.3.21, Java 17, and iOS 15.
+- Upgrade the example to Gradle 9.7.1, Android Gradle Plugin 9.3.3, Kotlin
+  2.4.20, Java 17, and iOS 15.
 - Replace the checked-in Flutter SDK with a local FVM version and exclude
   development files from publication.
 - Improve logger styling, preserve expansion state across filters, and guard
   scrolling after the overlay detaches.
+- Inherit the host Flutter theme for overlay controls and menus, including runtime
+  theme changes in plain Flutter and GetX apps. Update setup instructions and the
+  example to mount the overlay inside the app's `builder`.
+- Keep quick-filter styling independent of the host chip theme, with fixed
+  8-pixel corners and the existing message type colors.
+- Remove the direct `intl` dependency by formatting the logger's fixed timestamp
+  format with `DateTime`, avoiding a conflict with Flutter's pinned intl version.
 
 ## 2.0.0
 

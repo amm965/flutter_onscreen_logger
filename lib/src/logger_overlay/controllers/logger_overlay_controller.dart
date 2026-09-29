@@ -11,6 +11,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../data/log_item_model.dart';
 import '../../data/log_item_type.dart';
+import '../../data/network_log_options.dart';
 
 /// Controller for the logging overlay
 class LoggerOverlayController extends GetxController {
@@ -35,6 +36,11 @@ class LoggerOverlayController extends GetxController {
 
   Set<LogItemType> _enabledTypes = Set.unmodifiable(LogItemType.values);
 
+  NetworkLogOptions _networkLogOptions = const NetworkLogOptions();
+
+  /// Network capture settings used by connectors without an explicit override.
+  NetworkLogOptions get networkLogOptions => _networkLogOptions;
+
   /// Immutable capture types, independent of the overlay's visibility filters.
   Set<LogItemType> get enabledTypes => _enabledTypes;
 
@@ -48,9 +54,13 @@ class LoggerOverlayController extends GetxController {
     bool? enabled,
     Set<LogItemType>? enabledTypes,
     bool? autoScroll,
+    NetworkLogOptions? networkLogOptions,
   }) {
     if (enabledTypes != null) _enabledTypes = Set.unmodifiable(enabledTypes);
     if (enabled != null) isLoggingPaused.value = !enabled;
+    if (networkLogOptions != null) {
+      _networkLogOptions = networkLogOptions;
+    }
     if (autoScroll != null && autoScroll != this.autoScroll.value) {
       this.autoScroll.value = autoScroll;
       if (autoScroll) {
