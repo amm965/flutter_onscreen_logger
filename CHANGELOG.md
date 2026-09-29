@@ -13,6 +13,8 @@
 - Add examples for background session capture and production support sharing.
 - Add configurable request/response header and body capture for both network
   connectors, with redaction applied before entries are stored or shared.
+- Add an optional `LoggerOverlayWidget(theme: ...)` override for custom placement
+  outside the app's themed subtree.
 
 ### Updated
 
@@ -24,6 +26,11 @@
   development files from publication.
 - Improve logger styling, preserve expansion state across filters, and guard
   scrolling after the overlay detaches.
+- Inherit the host Flutter theme for overlay controls and menus, including runtime
+  theme changes in plain Flutter and GetX apps. Update setup instructions and the
+  example to mount the overlay inside the app's `builder`.
+- Keep quick-filter styling independent of the host chip theme, with fixed
+  8-pixel corners and the existing message type colors.
 - Remove the direct `intl` dependency by formatting the logger's fixed timestamp
   format with `DateTime`, avoiding a conflict with Flutter's pinned intl version.
 

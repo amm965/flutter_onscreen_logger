@@ -48,18 +48,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Stack(
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      builder: (context, child) => Stack(
+        fit: StackFit.expand,
         children: [
-          MaterialApp(
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-            home: const MyHomePage(title: 'Flutter Demo Home Page'),
-          ),
+          child ?? const SizedBox.shrink(),
           if (_loggerOverlayEnabled) LoggerOverlayWidget(),
         ],
       ),

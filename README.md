@@ -55,24 +55,53 @@ capture a session without an overlay for sharing through your support flow.
     }
     ```
 
-    - Wrap your `MaterialApp()` widget with a `Stack()` and `Directionality()` widgets.
-    - Add `LoggerOverlayWidget()` widget below it.
+    - Add the overlay using your app's `builder`, so it inherits the active app theme.
+    - Return a `Stack` containing the builder's `child` first and `LoggerOverlayWidget()` last.
     - Show the overlay when useful for your app. Its visibility is independent of capture. This example displays it only in debug mode (`kDebugMode` comes from `package:flutter/foundation.dart`).
 
    ```dart
-   Directionality(
-      textDirection: TextDirection.ltr, 
-      child: Stack(
-          children: [
-            MaterialApp(
-              //...other material app properties...
-              home: MyHomePage(title: 'MyApp'),
-            ),
-            if (kDebugMode) LoggerOverlayWidget(),
-          ],
-        ),
-    );
+   MaterialApp(
+     // ...your theme, routes, and other app properties...
+     home: MyHomePage(title: 'MyApp'),
+     builder: (context, child) => Stack(
+       fit: StackFit.expand,
+       children: [
+         child ?? const SizedBox.shrink(),
+         if (kDebugMode) LoggerOverlayWidget(),
+       ],
+     ),
+   );
    ```
+
+### App theme integration
+
+Use the same `builder` setup with `MaterialApp`, `MaterialApp.router`, or
+`GetMaterialApp`. The logger reads Flutter's inherited `Theme`, so it follows
+the active theme and runtime light/dark changes without depending on how the
+app manages theme state. The handle and jump button use `ThemeData.primaryColor`,
+and the options popup inherits the app's theme, including `popupMenuTheme`.
+Message cards and quick filters retain their type colors and black background.
+Quick filters use a fixed style with 8-pixel corners, independent of the app's
+chip shape, typography, and spacing. Accessibility text scaling still applies.
+
+If your app already has a builder, keep its existing content in the stack along
+with the logger. Keep the supplied `child` in the tree so navigation still works.
+
+**Migrating an existing integration:** move the logger from the outer
+`Stack(children: [MaterialApp(...), LoggerOverlayWidget()])` into the app's
+`builder`. A sibling cannot inherit the theme inside `MaterialApp` or
+`GetMaterialApp`. The package's earlier setup instructions placed it outside
+that theme.
+
+For custom placement outside the themed subtree, supply an explicit override:
+
+```dart
+LoggerOverlayWidget(theme: activeAppTheme)
+```
+
+Rebuild with the updated `ThemeData` whenever that external theme changes. The
+override takes precedence over the inherited theme. Without an override or an
+inherited theme, Flutter supplies its fallback theme.
 
 ## Usage
 
@@ -202,7 +231,7 @@ calls can stay in your application code:
 ```dart
 OnScreenLog.init(enabled: kDebugMode);
 
-// In the Stack around your MaterialApp:
+// In the Stack returned by your app's builder:
 if (kDebugMode) LoggerOverlayWidget(),
 ```
 
@@ -214,7 +243,7 @@ production settings or support page can offer a share button:
 ```dart
 OnScreenLog.init(enabled: true);
 
-// In the Stack around your MaterialApp:
+// In the Stack returned by your app's builder:
 if (kDebugMode) LoggerOverlayWidget(),
 
 // In your settings/support page:

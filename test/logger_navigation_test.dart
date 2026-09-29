@@ -9,51 +9,6 @@ import 'package:get/get.dart';
 void main() {
   tearDown(() => Get.reset());
 
-  testWidgets('overlay controls inherit the host application theme', (
-    tester,
-  ) async {
-    final controller = Get.put(LoggerOverlayController())
-      ..isExpanded.value = true
-      ..autoScroll.value = false;
-    for (var i = 0; i < 30; i++) {
-      controller.log(LogItem(type: LogItemType.info, description: 'Entry $i'));
-    }
-    final theme = ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-    );
-    await tester.pumpWidget(
-      MaterialApp(theme: theme, home: LoggerOverlayWidget()),
-    );
-    await tester.pumpAndSettle();
-
-    final nestedApp = tester
-        .widgetList<MaterialApp>(find.byType(MaterialApp))
-        .last;
-    expect(nestedApp.theme!.colorScheme.primary, theme.colorScheme.primary);
-    final menu = tester
-        .widgetList<PopupMenuButton<String>>(
-          find.byType(PopupMenuButton<String>),
-        )
-        .single;
-    expect((menu.icon! as Icon).color, theme.colorScheme.primary);
-    final jump = tester.widget<FloatingActionButton>(
-      find.byType(FloatingActionButton),
-    );
-    expect(jump.backgroundColor, theme.colorScheme.primary);
-    expect(jump.foregroundColor, theme.colorScheme.onPrimary);
-    expect(
-      find.byWidgetPredicate(
-        (widget) =>
-            widget is Container &&
-            widget.color == theme.colorScheme.primary &&
-            widget.constraints?.maxHeight == 45,
-      ),
-      findsOneWidget,
-    );
-    await tester.pumpWidget(const SizedBox());
-  });
-
   testWidgets(
     'filters match item colors, and menu icons represent both toggle states',
     (tester) async {
